@@ -26,6 +26,39 @@ static struct se *get_ast (const char *expression)
 	return se;
 }
 
+static const char *se_name (const struct se *o)
+{
+	switch (o->type) {
+	case SE_NUMBER:	return "num";
+	case SE_ADD:	return "+";
+	case SE_SUB:	return "-";
+	case SE_MUL:	return "*";
+	case SE_DIV:	return "/";
+	}
+
+	return "unknown";
+}
+
+static void show (const char *prefix, const struct se *o)
+{
+	int i;
+
+	printf ("%s(%s", prefix, se_name (o));
+
+	for (i = 0; i < se_count (o->type); ++i)
+		if (se_is_terminal (o->type))
+			printf (" %s", o->item[i]);
+		else {
+			putchar (' ');
+			show ("", o->item[i]);
+		}
+
+	putchar (')');
+
+	if (prefix[0] != '\0')
+		putchar ('\n');
+}
+
 static int evaluate (struct se *o)
 {
 	switch (o->type) {
@@ -53,6 +86,7 @@ int main (void)
 	if ((se = get_ast (expression)) == NULL)
 		return 1;
 
+	show ("se = ", se);
 	printf ("'%s' -> %d\n", expression, evaluate (se));
 
 	se_free (se);
