@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 #include "se.h"
-#include "parser.h"
-#include "lexer.h"
+#include "calc-parser.h"
+#include "calc-lexer.h"
 
 static struct se *get_ast (const char *expression)
 {

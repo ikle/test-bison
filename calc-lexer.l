@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "se.h"
-#include "parser.h"
+#include "calc-parser.h"
 
 %}
 
