@@ -31,7 +31,7 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 %left TOKEN_PLUS TOKEN_MINUS
 %left TOKEN_MULTIPLY TOKEN_DIVIDE
 
-%token <item> TOKEN_NUMBER
+%token <se> TOKEN_NUMBER
 %token TOKEN_LPAREN TOKEN_RPAREN
 
 %type <se> expr
@@ -48,7 +48,7 @@ expr
 	| expr[L] TOKEN_MULTIPLY expr[R]	{ $$ = se (SE_MUL, $L, $R); }
 	| expr[L] TOKEN_DIVIDE   expr[R]	{ $$ = se (SE_DIV, $L, $R); }
 	| TOKEN_LPAREN expr[E] TOKEN_RPAREN	{ $$ = $E; }
-	| TOKEN_NUMBER[N]			{ $$ = se (SE_NUMBER, $N);  }
+	| TOKEN_NUMBER[N]			{ $$ = $N; }
 	;
 
 %%

@@ -27,7 +27,8 @@ BLANK		[ \r\n\t]*
 %%
 
 {BLANK}		{ /* skip blanks */ }
-{NUMBER}	{ yylval->item = strdup (yytext); return TOKEN_NUMBER; }
+{NUMBER}	{ yylval->se = se (SE_NUMBER, strdup (yytext));
+		  return TOKEN_NUMBER; }
 
 {PLUS}		{ return TOKEN_PLUS;     }
 {MINUS}		{ return TOKEN_MINUS;    }
