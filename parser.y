@@ -26,6 +26,8 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 	struct se *se;
 }
 
+%token TOKEN_ERROR
+
 %left TOKEN_PLUS TOKEN_MINUS
 %left TOKEN_MULTIPLY TOKEN_DIVIDE
 

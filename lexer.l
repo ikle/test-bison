@@ -36,6 +36,6 @@ BLANK		[ \r\n\t]*
 
 {LPAREN}	{ return TOKEN_LPAREN;   }
 {RPAREN}	{ return TOKEN_RPAREN;   }
-.		{ return -1; /* OOPS: throw error here */  }
+.		{ return TOKEN_ERROR;    }
 
 %%
