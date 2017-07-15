@@ -25,6 +25,10 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 #define YYSTYPE  struct se *
 }
 
+%code provides {
+int calclex (YYSTYPE *ret, void *scanner);
+}
+
 %token TOKEN_ERROR
 
 %left TOKEN_PLUS TOKEN_MINUS
