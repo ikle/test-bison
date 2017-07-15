@@ -21,9 +21,8 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 %parse-param { struct se **o }
 %parse-param { void *scanner }
 
-%union {
-	char *item;
-	struct se *se;
+%code requires {
+#define YYSTYPE  struct se *
 }
 
 %token TOKEN_ERROR
@@ -31,10 +30,8 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 %left TOKEN_PLUS TOKEN_MINUS
 %left TOKEN_MULTIPLY TOKEN_DIVIDE
 
-%token <se> TOKEN_NUMBER
+%token TOKEN_NUMBER
 %token TOKEN_LPAREN TOKEN_RPAREN
-
-%type <se> expr
 
 %%
 
