@@ -30,11 +30,11 @@ int calcparse (struct se **o, void *scanner);
 
 %token TOKEN_ERROR
 
-%left TOKEN_PLUS TOKEN_MINUS
-%left TOKEN_MULTIPLY TOKEN_DIVIDE
+%left '+' '-'
+%left '*' '/'
 
 %token TOKEN_NUMBER
-%token TOKEN_LPAREN TOKEN_RPAREN
+%token '(' ')'
 
 %%
 
@@ -43,12 +43,12 @@ input
 	;
 
 expr
-	: expr[L] TOKEN_PLUS     expr[R]	{ $$ = se (SE_ADD, $L, $R); }
-	| expr[L] TOKEN_MINUS    expr[R]	{ $$ = se (SE_SUB, $L, $R); }
-	| expr[L] TOKEN_MULTIPLY expr[R]	{ $$ = se (SE_MUL, $L, $R); }
-	| expr[L] TOKEN_DIVIDE   expr[R]	{ $$ = se (SE_DIV, $L, $R); }
-	| TOKEN_LPAREN expr[E] TOKEN_RPAREN	{ $$ = $E; }
-	| TOKEN_NUMBER[N]			{ $$ = $N; }
+	: expr[L] '+' expr[R]		{ $$ = se (SE_ADD, $L, $R); }
+	| expr[L] '-' expr[R]		{ $$ = se (SE_SUB, $L, $R); }
+	| expr[L] '*' expr[R]		{ $$ = se (SE_MUL, $L, $R); }
+	| expr[L] '/' expr[R]		{ $$ = se (SE_DIV, $L, $R); }
+	| '(' expr[E] ')'		{ $$ = $E; }
+	| TOKEN_NUMBER[N]		{ $$ = $N; }
 	;
 
 %%

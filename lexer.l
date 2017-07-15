@@ -14,29 +14,18 @@
 %option nounistd
 %option bison-bridge
 
-LPAREN		"("
-RPAREN		")"
-PLUS		"+"
-MINUS		"-"
-MULTIPLY	"*"
-DIVIDE		"/"
-
+SIMPLE		[+\-*/()]
 NUMBER		[0-9]+
 BLANK		[ \r\n\t]*
 
 %%
 
 {BLANK}		{ /* skip blanks */ }
+{SIMPLE}	{ return yytext[0]; }
+
 {NUMBER}	{ *yylval = se (SE_NUMBER, strdup (yytext));
 		  return TOKEN_NUMBER; }
 
-{PLUS}		{ return TOKEN_PLUS;     }
-{MINUS}		{ return TOKEN_MINUS;    }
-{MULTIPLY}	{ return TOKEN_MULTIPLY; }
-{DIVIDE}	{ return TOKEN_DIVIDE; }
-
-{LPAREN}	{ return TOKEN_LPAREN;   }
-{RPAREN}	{ return TOKEN_RPAREN;   }
 .		{ return TOKEN_ERROR;    }
 
 %%
