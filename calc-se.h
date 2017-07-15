@@ -1,3 +1,11 @@
+/*
+ * Sample Calculator S-Expressions
+ *
+ * Copyright (c) 2017 Alexei A. Smekalkine
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #ifndef CALC_SE_H
 #define CALC_SE_H
 

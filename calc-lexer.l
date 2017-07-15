@@ -1,4 +1,11 @@
 %{
+/*
+ * Sample Calculator Lexical Analyzer
+ *
+ * Copyright (c) 2017 Alexei A. Smekalkine
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
 
 #include <string.h>
 

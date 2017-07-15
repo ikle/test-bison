@@ -1,4 +1,11 @@
 %{
+/*
+ * Sample Calculator Parser
+ *
+ * Copyright (c) 2017 Alexei A. Smekalkine
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
 
 #include "se.h"
 

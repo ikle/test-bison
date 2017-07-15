@@ -1,3 +1,11 @@
+/*
+ * Parser S-Expressions
+ *
+ * Copyright (c) 2017 Alexei A. Smekalkine
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #ifndef SE_H
 #define SE_H
 

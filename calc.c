@@ -1,3 +1,11 @@
+/*
+ * Sample Calculator
+ *
+ * Copyright (c) 2017 Alexei A. Smekalkine
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #include <stdio.h>
 
 #include "calc-parser.h"
