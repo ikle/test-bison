@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#include "se.h"
 #include "calc-parser.h"
 #include "calc-lexer.h"
 

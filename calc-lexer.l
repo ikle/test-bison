@@ -2,7 +2,6 @@
 
 #include <string.h>
 
-#include "se.h"
 #include "calc-parser.h"
 
 %}
