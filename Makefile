@@ -22,5 +22,4 @@ install: $(TARGETS)
 		--defines=$(patsubst %.y,%.h, $<) $<
 
 calc-lexer.o:  calc-parser.h
-calc-parser.o: calc-lexer.h
 calc: se.o calc-lexer.o calc-parser.o
