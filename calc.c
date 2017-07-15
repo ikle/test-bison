@@ -4,8 +4,6 @@
 #include "parser.h"
 #include "lexer.h"
 
-int calcparse (struct se **se, void *scanner);
-
 static struct se *get_ast (const char *expression)
 {
 	struct se *se;

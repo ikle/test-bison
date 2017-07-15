@@ -6,8 +6,6 @@
 #define yylex    calclex
 #define yyparse  calcparse	/* define api.prefix for bison >= 2.6 */
 
-int yyparse (struct se **o, void *scanner);
-
 static void yyerror (struct se **o, void *scanner, const char *msg)
 {
 	fprintf (stderr, "E: %s\n", msg);
@@ -27,6 +25,7 @@ static void yyerror (struct se **o, void *scanner, const char *msg)
 
 %code provides {
 int calclex (YYSTYPE *ret, void *scanner);
+int calcparse (struct se **o, void *scanner);
 }
 
 %token TOKEN_ERROR
