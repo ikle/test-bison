@@ -2,7 +2,7 @@
 
 #include "se.h"
 
-struct se *se (enum se_type type, ...)
+struct se *se (int type, ...)
 {
 	struct se *o;
 	size_t size = sizeof (*o) + sizeof (o->item[0]) * se_count (type);

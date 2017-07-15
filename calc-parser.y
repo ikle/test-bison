@@ -20,7 +20,7 @@ static void yyerror (struct se **o, void *scanner, const char *msg);
 }
 
 %code provides {
-#include "se.h"
+#include "calc-se.h"
 
 int calclex (YYSTYPE *ret, void *scanner);
 int calcparse (struct se **o, void *scanner);
