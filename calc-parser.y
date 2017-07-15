@@ -1,15 +1,11 @@
 %{
 
-#include <stdio.h>
 #include "se.h"
 
 #define yylex    calclex
 #define yyparse  calcparse	/* define api.prefix for bison >= 2.6 */
 
-static void yyerror (struct se **o, void *scanner, const char *msg)
-{
-	fprintf (stderr, "E: %s\n", msg);
-}
+static void yyerror (struct se **o, void *scanner, const char *msg);
 
 %}
 
@@ -52,3 +48,10 @@ expr
 	;
 
 %%
+
+#include <stdio.h>
+
+static void yyerror (struct se **o, void *scanner, const char *msg)
+{
+	fprintf (stderr, "E: %s\n", msg);
+}
