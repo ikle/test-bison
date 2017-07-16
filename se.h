@@ -7,7 +7,7 @@
  */
 
 #ifndef SE_H
-#define SE_H
+#define SE_H  1
 
 /* se_type encodes number of arguments in lower nibble and flags in next one */
 #define SE(i, f, n)  ((i) << 8 | (f) << 4 | (n))

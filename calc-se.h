@@ -7,7 +7,7 @@
  */
 
 #ifndef CALC_SE_H
-#define CALC_SE_H
+#define CALC_SE_H  1
 
 #include "se.h"
 
