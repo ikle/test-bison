@@ -39,6 +39,8 @@ int calcparse (struct se **o, void *scanner);
 %left '*' '/'
 
 %token TOKEN_NUMBER
+%destructor { se_free ($$); } TOKEN_NUMBER
+
 %token '(' ')'
 
 %%
